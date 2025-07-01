@@ -7,41 +7,42 @@ import NameScroller from './components/NameScroller';
 import './App.css';
 import confetti from 'canvas-confetti';
 
-const namesList = [
-  "Sera Rehetra", "Andriah Mihaja",
-  "Maminiaina RH", "Jūlį Ãnåh", "Nèkènæ Tanjona", "Ÿånn Ĩčk", "Dauphin Rakotoarivelo",
-  "Razafivatobe Sergio", "Andriantsoa Aro", "Louisianah Ornella", "Malala Tiana", "Kazy TMa",
-  "Tantely Rasamson Joe", "Rah Tiavina", "Christina Ayah Iriela", "Alexander Wiliam", "Estelah Mayah",
-  "Nou Raf", "Mihajatiana Andrianantoanina", "Jessïïcä Dzy", "Jossette Oliva", "Maurilla Vague",
-  "Rose Mikanto", "Diæ Ry", "Murielah Rkt", "Viaviny Antatsimo", "Tsiky Kwelly", "Rotsy Tsoa",
-  "Centy Tia", "Odi Camarack", "Lalatiana Ras", "Eliha Sina", "Mahazo Tsara Lidiah",
-  "Aissat Xennah Ramarovololona", "Ranaivosoa Tatamo", "Mahaliana Fitia", "Jahelah Rhn",
-  "Eliot Raphaël De Mada", "Moznah Sidonie", "Christina Mara", "Nomenjanahary Fenitra", "Loke Sha",
-  "Rabemanantsoa Chrystopher", "Rj Màh Noo", "Maholisoa Noellah", "Razanamanaja Marie Daniellah",
-  "Sakay Pilopilo", "An Do", "Mamisoa Fabienne", "Ginah Navalona", "Tsohaa Nomenjanahary",
-  "Koloina Naly", "Estelle Olivier Richella", "Ny Volatiana", "Dinah Sy Sandy",
-  "Antoinette Mihaminarivo", "Karënë Sįsï", "Kimmerlouise Razafindrina", "Fanyah Jeysse",
-  "Sambatra Fyh", "Fy Tia Enya Lamothe", "Laryh SSa", "Angela Romie", "Harena Emenyah",
-  "Sarah Razafindrazaka", "Bloom Mdg", "Nancy Raharison", "Faniry", "Mih Eliane", "Tsanta Randrian",
-  "Miora Ramananiary", "Nadia Randria", "Avosoa H-Ny Aina", "Mulane Fotsiny", "Ayah Ayah",
-  "Bru Elle", "Catty Jaa", "Saniah Ulrichina", "Fe Nitra", "Tiantsara Sariaka Rakotovao",
-  "Safianty Ben Fifie", "Injarashauriaina Ando", "Hasi Niaina", "Kathy Evaluna",
-  "Tsifoina Uriel Lucia Reina", "Léontine Léontine", "Rosanah Andriantiana", "An Nah", "Wi Ands",
-  "Kia Jy", "Larissa Anielhavah", "Aina Fanantenana", "Nirina Razafitseheno", "Eloita Houssen",
-  "Larissa Noambininjanahary", "Shii Van", "HB Constatin", "Ambinintsoa Lalanirina",
-  "Mihariseheno Sandratriniaina", "Mylane Benisoa", "Erich Cah", "Kapakapa Mora",
-  "Mayah Julie", "Francia Francia", "Rindratsoa Valérie", "Fiti Andri",
-  "Elisah Noeline Razafii", "Olivia Olivia", "Koloina Carly", "Lova Tiana", "San Dra",
-  "Waviloid Studio",  "Sera Rehetra", "Andriah Mihaja",
-  "Diane Larissa Razanamasy", "Rina Hope", "Kolo Inah", "Mireille Aronah",
-  "Lunaria Aria", "Santatry Ny Aina"
-];
+const namesList = Array.from(
+    new Set([
+      // anciens noms
+      "Anais Kacey", "Sera Rehetra", "Andriah Mihaja",
+      "Maminiaina RH", "Jūlį Ãnåh", "Nèkènæ Tanjona", "Ÿånn Ĩčk", "Dauphin Rakotoarivelo",
+      "Razafivatobe Sergio", "Andriantsoa Aro", "Louisianah Ornella", "Malala Tiana", "Kazy TMa",
+      "Tantely Rasamson Joe", "Rah Tiavina", "Christina Ayah Iriela", "Alexander Wiliam", "Estelah Mayah",
+      "Nou Raf", "Mihajatiana Andrianantoanina", "Jessïïcä Dzy", "Jossette Oliva", "Maurilla Vague",
+      "Rose Mikanto", "Diæ Ry", "Murielah Rkt", "Viaviny Antatsimo", "Tsiky Kwelly", "Rotsy Tsoa",
+      "Centy Tia", "Odi Camarack", "Lalatiana Ras", "Eliha Sina", "Mahazo Tsara Lidiah",
+      "Aissat Xennah Ramarovololona", "Ranaivosoa Tatamo", "Mahaliana Fitia", "Jahelah Rhn",
+      "Eliot Raphaël De Mada", "Moznah Sidonie", "Christina Mara", "Nomenjanahary Fenitra", "Loke Sha",
+      "Rabemanantsoa Chrystopher", "Rj Màh Noo", "Maholisoa Noellah", "Razanamanaja Marie Daniellah",
+      "Sakay Pilopilo", "An Do", "Mamisoa Fabienne", "Ginah Navalona", "Tsohaa Nomenjanahary",
+      "Koloina Naly", "Estelle Olivier Richella", "Ny Volatiana", "Dinah Sy Sandy",
+      "Antoinette Mihaminarivo", "Karënë Sįsï", "Kimmerlouise Razafindrina", "Fanyah Jeysse",
+      // nouveaux noms
+      "Sambatra Fyh", "Fy Tia Enya Lamothe", "Laryh SSa", "Angela Romie", "Harena Emenyah",
+      "Sarah Razafindrazaka", "Bloom Mdg", "Nancy Raharison", "Faniry", "Mih Eliane",
+      "Tsanta Randrian", "Miora Ramananiary", "Nadia Randria", "Avosoa H-Ny Aina", "Mulane Fotsiny",
+      "Ayah Ayah", "Bru Elle", "Catty Jaa", "Saniah Ulrichina", "Fe Nitra", "Tiantsara Sariaka Rakotovao",
+      "Safianty Ben Fifie", "Injarashauriaina Ando", "Hasi Niaina", "Kathy Evaluna", "Tsifoina Uriel Lucia Reina",
+      "Léontine Léontine", "Rosanah Andriantiana", "An Nah", "Wi Ands", "Kia Jy",
+      "Larissa Anielhavah", "Aina Fanantenana", "Nirina Razafitseheno", "Eloita Houssen",
+      "Larissa Noambininjanahary", "Shii Van", "HB Constatin", "Ambinintsoa Lalanirina",
+      "Mihariseheno Sandratriniaina", "Mylane Benisoa", "Erich Cah", "Kapakapa Mora",
+      "Mayah Julie", "Francia Francia", "Rindratsoa Valérie", "Fiti Andri", "Elisah Noeline Razafii",
+      "Olivia Olivia", "Koloina Carly", "Lova Tiana", "San Dra", "Diane Larissa Razanamasy",
+      "Rina Hope", "Kolo Inah", "Mireille Aronah", "Lunaria Aria", "Santatry Ny Aina"
+    ])
+);
 
-// 🆕 Ordre mis à jour ici
 const fixedWinners = [
-  "Anais Kacey",                    // 1er tirage → N°1
-  "Rindratsoa Valérie",     // 2e tirage → N°2
-  "Razafivatobe Sergio"            // 3e tirage → N°3
+  "Anais Kacey",          //resultat voalohany
+  "Rindratsoa Valérie",   //resultat faharoa
+  "Razafivatobe Sergio"   //resultat fahatelo
 ];
 
 function App() {
@@ -85,16 +86,13 @@ function App() {
         count++;
         if (count >= 50) {
           clearInterval(interval);
-
           const name = fixedWinners[drawIndex];
           setSelectedName(name);
-
           setWinners(prev => {
             const updated = [...prev];
             updated[drawIndex] = name;
             return updated;
           });
-
           setDrawIndex(drawIndex + 1);
           setScrolling(false);
           launchConfetti();
@@ -118,7 +116,6 @@ function App() {
           <audio ref={audioRef} src="/tada.mp3" preload="auto" />
 
           <Grid container spacing={4} mt={4} justifyContent="center">
-            {/* Liste */}
             <Grid item xs={12} md={6}>
               <Typography variant="h6" align="center" gutterBottom>
                 Participants
@@ -126,7 +123,6 @@ function App() {
               <NameScroller names={namesList} isPaused={scrolling} />
             </Grid>
 
-            {/* Résultats */}
             <Grid item xs={12} md={6}>
               <Typography variant="h5">Résultats</Typography>
               {winners.map((winner, index) => (
@@ -168,14 +164,12 @@ function App() {
             </Grid>
           </Grid>
 
-          {/* Nom sélectionné */}
           {selectedName && (
-              <Box mt={3}>
+              <Box mt={3} className="selected-name">
                 <Chip label={selectedName} color="secondary" sx={{ fontSize: '1.5rem', p: 2 }} />
               </Box>
           )}
 
-          {/* Boutons */}
           <Box mt={4} display="flex" gap={2}>
             <Button
                 variant="contained"

@@ -3,6 +3,10 @@ import { Box, Chip } from '@mui/material';
 import '../App.css';
 
 const NameScroller = ({ names, isPaused }) => {
+    if (!Array.isArray(names) || names.length === 0) {
+        return <Box p={2}>Aucun participant</Box>;
+    }
+
     return (
         <Box
             className="scroll-container"
@@ -19,7 +23,7 @@ const NameScroller = ({ names, isPaused }) => {
             <Box className={`scroll-list ${isPaused ? 'paused' : ''}`}>
                 {[...names, ...names].map((name, index) => (
                     <Chip
-                        key={`${name}-${index}`}
+                        key={`name-${index}`}
                         label={name}
                         color="primary"
                         variant="filled"
