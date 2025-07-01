@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #ffffff;
+}
+
+.scroll-container {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+  background-color: #fafafa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: scroll-vertical 15s ease-in-out infinite;
+  transition: transform 0.5s ease;
+}
+
+.scroll-list.paused {
+  animation-play-state: paused;
+}
+
+/* Animation continue de scroll vertical */
+@keyframes scroll-vertical {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+/* ✅ Nom gagnant en focus */
+.winner-chip {
+  transform: scale(1.1);
+  border: 2px solid gold;
+  background-color: #ffefc1 !important;
+  color: #000 !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* ✅ Animation du nom principal en bas */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.selected-name {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* ✅ Responsive (mobile) */
+@media (max-width: 600px) {
+  .scroll-container {
+    height: 150px;
+  }
+
+  .scroll-list {
+    gap: 6px;
+  }
+
+  .winner-chip {
+    font-size: 0.9rem !important;
+  }
+}
